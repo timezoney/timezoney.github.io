@@ -58,6 +58,30 @@ header img {
     height: 70px;
 }
 
+/* main */
+main {
+    position: relative;
+}
+
+main img {
+    position: relative;
+    width: 16%;
+    left: 42%;
+    margin-top: 50px;
+
+}
+
+main a#avatar, main a#avatar:visited {
+    background-color: #FFC914;
+    padding: 5px;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    border: 2px solid black;
+    box-shadow: 2px 2px 3px black;
+
+}
+
 /* footer style */
 
 footer {
@@ -65,6 +89,8 @@ footer {
    text-align: center;
    border-top: 3px black solid;
    width: 100%;
+   margin-top: 20px;
+
 }
 
 footer p {
