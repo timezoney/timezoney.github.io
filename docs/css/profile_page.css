@@ -59,15 +59,12 @@ header img {
 }
 
 /* main */
-main {
-    position: relative;
-}
 
 main img {
-    position: relative;
-    width: 16%;
-    left: 42%;
-    margin-top: 50px;
+    width: 150px;
+    height: auto;
+    margin: 50px auto;
+    display: block;
 
 }
 
@@ -81,6 +78,15 @@ main a#avatar, main a#avatar:visited {
     box-shadow: 2px 2px 3px black;
 
 }
+
+main section#user_info {
+    margin-left: 40px;
+    border: 2px black solid;
+    border-radius: 20px;
+    padding: 20px;
+    display: inline-block;
+}
+
 
 /* footer style */
 
