@@ -1,0 +1,10 @@
+1. Since this web app uses php to process data, it cannot be run with "Live Server" feature in VSCode.
+So a local server has to be launched in order for this profile page to work.
+To launch a server I used a command "php -S localhost:8000" and opened the site with the link "http://localhost:8000/docs/profile.php";
+
+2. In order for this command to work, you need to have php installed;
+
+3. For this part I am not sure: the program interacts with the database called "jobster",
+but i don't think that this database is saved somewhere in the project's folder (I haven’t figured that out, unfortunately).
+So I included a script file that would create a database needed for this app to work (docs\sql_scripts\jobster_db.sql).
+(it doesn't create anything, it only has the code for creating)

@@ -3,6 +3,15 @@ html {
     min-width: 800px;
 }
 
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+h1 {font-size: 2em}
+h2 {font-size: 1.5em}
+h3 {font-size: 1.125em}
 
 /* header style */
 
@@ -21,7 +30,7 @@ header a, header a:visited {
 }
 
 header h1 {
-    font-size: 40px;
+    font-size: 2.5em;
     margin: 0px;
 }
 
@@ -56,6 +65,12 @@ header ul li a#active {
 header img {
     width: 70px;
     height: 70px;
+}
+
+/* main style */
+main {
+    margin: 40px;
+    flex: 1;
 }
 
 /* footer style */

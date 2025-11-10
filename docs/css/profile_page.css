@@ -1,8 +1,17 @@
 html {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    min-width: 800px;
+    min-width: 350px;
 }
 
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+h1 {font-size: 2em}
+h2 {font-size: 1.5em}
+h3 {font-size: 1.125em}
 
 /* header style */
 
@@ -21,7 +30,7 @@ header a, header a:visited {
 }
 
 header h1 {
-    font-size: 40px;
+    font-size: 2.5em;
     margin: 0px;
 }
 
@@ -44,21 +53,28 @@ header ul li a, header ul li a:visited{
     border: 2px solid black;
 }
 
-header ul li a:not(#active):hover {
+header ul li a:hover {
     background-color: black;
     color: white
 }
 
-header ul li a#active {
+/* header ul li a#active {
     background-color: rgb(194, 194, 194);
-}
+} */
 
 header img {
     width: 70px;
     height: 70px;
 }
 
-/* main */
+/* main style */
+main {
+    margin: 40px;
+    flex: 1; /* main should take all the space
+                 that is left (so that the footer
+                  is at the bottom of the screen, even if
+                   there is not enough content for it) */
+}
 
 main img {
     width: 150px;
@@ -68,23 +84,56 @@ main img {
 
 }
 
-main a#avatar, main a#avatar:visited {
-    background-color: #FFC914;
-    padding: 5px;
-    text-decoration: none;
-    color: black;
-    font-weight: bold;
-    border: 2px solid black;
-    box-shadow: 2px 2px 3px black;
-
+main div#profile_grid {
+    display: grid;
+    grid-template-columns: 40% 40%;
+    justify-content: space-between;
+    gap: 20px;
+    align-items: start;
 }
 
-main section#user_info {
-    margin-left: 40px;
-    border: 2px black solid;
+main div#profile_grid section#user_info {
+    background-color: #FFE48A;
     border-radius: 20px;
-    padding: 20px;
-    display: inline-block;
+    padding: 30px;
+    overflow: auto;
+}
+
+main div#profile_grid section#reviews {
+    background-color: #FFE48A;
+    border-radius: 20px;
+    padding: 30px;
+    overflow: auto;
+}
+
+main div#profile_grid section#user_info button {
+    background-color: #366F7B;
+    font-weight: bold;
+    color: white;
+    padding: 10px;
+    display: block;
+    margin: 0px auto;
+    border: 0px;
+    border-radius: 10px;
+}
+
+main div#profile_grid section#user_info button:hover {
+    background-color: #56A3A6;
+}
+
+main div#profile_grid section#user_info form input[type="submit"] {
+    background-color: #366F7B;
+    font-weight: bold;
+    color: white;
+    padding: 10px;
+    display: block;
+    margin: 0px auto;
+    border: 0px;
+    border-radius: 10px;
+}
+
+main div#profile_grid section#user_info form input[type="submit"]:hover {
+    background-color: #56A3A6;
 }
 
 
@@ -103,4 +152,59 @@ footer p {
     display: inline-block;
     font-weight: bold;
     margin: 20px;
+}
+
+/* CSS media queries */
+@media screen and (max-width: 800px) {
+
+    body {
+        font-size: 0.7em;
+    }
+
+    header img {
+        width: 49px;
+        height: auto;
+    }
+
+    main img {
+        width: 105px;
+        height: auto;
+    }
+
+}
+
+@media screen and (max-width: 600px) {
+
+    body {
+        font-size: 0.5em;
+    }
+
+    header img {
+        width: 35px;
+        height: auto;
+    }
+
+    main img {
+        width: 75px;
+        height: auto;
+    }
+
+}
+
+@media screen and (max-width: 450px) {
+
+    body {
+        font-size: 0.3em;
+    }
+
+    header img {
+        width: 21px;
+        height: auto;
+    }
+
+    main img {
+        width: 45px;
+        height: auto;
+    }
+
 }
