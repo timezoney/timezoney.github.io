@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catalog (Jobs)</title>
+    <meta name="author" content="Daniil">
+    <meta name="keywords" content="catalog, posts">
+    <meta name="description" content="Catalog presenting posts made by other users">
+    <link rel="stylesheet" href="./css/normalize.css">
+    <link rel="stylesheet" href="./css/catalog.css">
+</head>
+<body>
+    <header>
+        <a href="#">
+            <h1>Jobster</h1>
+        </a>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="./catalog_employees.html">Catalog (employees)</a></li>
+            <li><a class="active" href="#">Catalog (jobs)</a></li>
+            <li><a href="#">Profile</a></li>
+        </ul>
+        <a href="#">
+            <img src="./images/user.png" alt="profile avatar">
+        </a>
+    </header>
+
+    <main>
+        
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Jobster</p>
+        <p>Author: Daniil</p>
+    </footer>
+
+    <script type="module" defer>
+        import { load_post_data, load_user_data } from './data_utils.js'
+
+        let all_posts = await load_post_data();
+        all_posts.forEach((post) => {
+            if (post.type == "job"){
+                document.querySelector('main').innerHTML += `<a href="./view_post.html" id="${post.id}">
+                                                                <img src="${post.image}" alt="${post.image}" width="200px">
+                                                                <h3>${post.title}</h3>
+                                                                <h5>${post.author}</h5>
+                                                                <p>${post.short_description}</p>
+                                                            </a>`
+            }
+            
+        });
+
+        document.querySelectorAll('main a').forEach((link) => {
+            link.addEventListener('click', () => {
+                sessionStorage.setItem('post_id', link.id)
+                sessionStorage.setItem('last_page', './catalog_jobs.html')
+            })
+        })
+    </script>
+</body>
+</html>

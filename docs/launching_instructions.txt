@@ -1,10 +1,8 @@
-1. Since this web app uses php to process data, it cannot be run with "Live Server" feature in VSCode.
-So a local server has to be launched in order for this profile page to work.
-To launch a server I used a command "php -S localhost:8000" and opened the site with the link "http://localhost:8000/docs/profile.php";
+To launch the application (second feature):
+1. type "node server.js" in the terminal (terminal should be opened in the docs folder);
+2. go to "http://localhost:3000/catalog_employees.html" or "http://localhost:3000/catalog_jobs.html" in your browser (the feature includes 2 pages);
 
-2. In order for this command to work, you need to have php installed;
-
-3. For this part I am not sure: the program interacts with the database called "jobster",
-but i don't think that this database is saved somewhere in the project's folder (I haven’t figured that out, unfortunately).
-So I included a script file that would create a database needed for this app to work (docs\sql_scripts\jobster_db.sql).
-(it doesn't create anything, it only has the code for creating)
+Catalog pages load data from posts.json file and create links that redirect users to "view post" page with the id of chosen post.
+(Second feature includes files: catalog_employees.html, catalog_jobs.html, catalog.css 
+                                and files to process data: server.js, data_utils.js, users.json, posts.json)
+(Since we don't have any users to create posts, we had to use post placeholders for demonstration)

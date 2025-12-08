@@ -1,0 +1,18 @@
+[
+    {
+        "name": "some_name",
+        "password": "some_password",
+        "email": "some@email",
+        "phone": 2345678901,
+        "description": "some description",
+        "fName": "some fName",
+        "lName": "some lName",
+        "DoB": "12/6/2025",
+        "posts_id": [
+            1,
+            2,
+            3,
+            4
+        ]
+    }
+]
