@@ -8,16 +8,18 @@ export async function load_user_data() {
 }
  
 export async function add_user_data(new_name, new_password, new_email, new_phone, new_description, new_fName, new_lName, new_DoB) {
-    const name = new_name
-    const password = new_password
-    const email = new_email
-    const phone = new_phone
-    const description = new_description
-    const fName = new_fName
-    const lName = new_lName
-    const DoB = new_DoB
+    let username = new_name
+    let password = new_password
+    let email = new_email
+    let phone = new_phone
+    let description = new_description
+    let fName = new_fName
+    let lName = new_lName
+    let DoB = new_DoB
     let posts_id = []
-    const newData = { name, password, email, phone, description, fName, lName, DoB, posts_id };
+    let notifications = []
+    let contacts = []
+    const newData = { username, password, email, phone, description, fName, lName, DoB, posts_id, notifications, contacts };
  
     const response = await fetch('/add-user-data', {
         method: 'POST',
@@ -60,8 +62,8 @@ export async function load_post_data() {
     return data   // returns all posts
 }
 
-export async function add_post_data(new_id, new_author, new_title, new_short_descr, new_full_descr, new_field_of_service) {
-    const id = new_id
+export async function add_post_data(new_author, new_title, new_short_descr, new_full_descr, new_field_of_service) {
+    const id = await load_post_data().length + 1
     const author = new_author
     const title = new_title
     const short_descr = new_short_descr

@@ -1,7 +1,7 @@
 [
     {
         "id": "1",
-        "author": "Author 1",
+        "author": "some_name",
         "title": "Title 1",
         "short_description": "Short description of the post 1",
         "full_description": "Full description of the post 1",
@@ -11,7 +11,7 @@
     },
     {
         "id": "2",
-        "author": "Author 2",
+        "author": "some_name",
         "title": "Title 2",
         "short_description": "Short description of the post 2",
         "full_description": "Full description of the post 2",
@@ -21,7 +21,7 @@
     },
     {
         "id": "3",
-        "author": "Author 3",
+        "author": "some_name",
         "title": "Title 3",
         "short_description": "Short description of the post 3",
         "full_description": "Full description of the post 3",
@@ -31,7 +31,7 @@
     },
     {
         "id": "4",
-        "author": "Author 4",
+        "author": "some_name",
         "title": "Title 4",
         "short_description": "Short description of the post 4",
         "full_description": "Full description of the post 4",
@@ -41,7 +41,7 @@
     },
     {
         "id": "5",
-        "author": "Author 5",
+        "author": "some_name",
         "title": "Title 5",
         "short_description": "Short description of the post 5",
         "full_description": "Full description of the post 5",
@@ -51,7 +51,7 @@
     },
     {
         "id": "6",
-        "author": "Author 6",
+        "author": "some_name",
         "title": "Title 6",
         "short_description": "Short description of the post 6",
         "full_description": "Full description of the post 6",
@@ -61,7 +61,7 @@
     },
     {
         "id": "7",
-        "author": "Author 7",
+        "author": "some_name",
         "title": "Title 7",
         "short_description": "Short description of the post 7",
         "full_description": "Full description of the post 7",
@@ -71,7 +71,7 @@
     },
     {
         "id": "8",
-        "author": "Author 8",
+        "author": "some_name",
         "title": "Title 8",
         "short_description": "Short description of the post 8",
         "full_description": "Full description of the post 8",
@@ -81,7 +81,7 @@
     },
     {
         "id": "9",
-        "author": "Author 9",
+        "author": "some_name",
         "title": "Title 9",
         "short_description": "Short description of the post 9",
         "full_description": "Full description of the post 9",
@@ -91,7 +91,7 @@
     },
     {
         "id": "10",
-        "author": "Author 10",
+        "author": "some_name",
         "title": "Title 10",
         "short_description": "Short description of the post 10",
         "full_description": "Full description of the post 10",

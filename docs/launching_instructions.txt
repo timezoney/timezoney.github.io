@@ -1,8 +1,11 @@
-To launch the application (second feature):
+To launch the application (third feature):
 1. type "node server.js" in the terminal (terminal should be opened in the docs folder);
-2. go to "http://localhost:3000/catalog_employees.html" or "http://localhost:3000/catalog_jobs.html" in your browser (the feature includes 2 pages);
+2. go to "http://localhost:3000/notifications.html" in your browser (the feature includes new interaction in the "view post" page);
 
-Catalog pages load data from posts.json file and create links that redirect users to "view post" page with the id of chosen post.
-(Second feature includes files: catalog_employees.html, catalog_jobs.html, catalog.css 
+Notifications page displays all the notifications stored in users.json file.
+They can be either rejected, which deletes them from the storage file, or accepted, which stores the usernames of those who had sent some message to the user in the "contacts" property.
+New notifications can be received through view_post.html.
+
+(Third feature includes files: catalog_employees.html (new icon in header), catalog_jobs.html (new icon in header), notifications.html, view_post.html (reply to a post feature) 
                                 and files to process data: server.js, data_utils.js, users.json, posts.json)
-(Since we don't have any users to create posts, we had to use post placeholders for demonstration)
+(Since we don't have any users to reply to posts, we had to use notifications placeholders for demonstration)

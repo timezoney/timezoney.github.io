@@ -21,9 +21,14 @@
             <li><a href="./catalog_jobs.html">Catalog (jobs)</a></li>
             <li><a href="#">Profile</a></li>
         </ul>
-        <a href="#">
-            <img src="./images/user.png" alt="profile avatar">
-        </a>
+        <div>
+            <a href="./notifications.html" style="margin-right: 20px;">
+                <img id="notification-icon" src="./images/notification.png" alt="notification (inactive)">
+            </a>
+            <a href="#">
+                <img src="./images/user.png" alt="profile avatar">
+            </a>
+        </div>
     </header>
 
     <main>
@@ -54,7 +59,7 @@
         document.querySelectorAll('main a').forEach((link) => {
             link.addEventListener('click', () => {
                 sessionStorage.setItem('post_id', link.id)
-                sessionStorage.setItem('last_page', './catalog_employees.html')
+                sessionStorage.setItem('catalog_type', './catalog_employees.html')
             })
         })
     </script>

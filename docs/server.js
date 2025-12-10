@@ -62,9 +62,9 @@ app.patch('/update-user-data/:name', (req, res) => {
  
         // Update the data and write back to the file
         const jsonData = JSON.parse(data);
-        const i = jsonData.findIndex(d => d.name === name);
+        const i = jsonData.findIndex(d => d.username === name);
         jsonData[i] = { ...jsonData[i], ...updates};
- 
+        
         fs.writeFile('./users.json', JSON.stringify(jsonData, null, 2), (err) => {
             if (err) {
                 res.status(500).send('Error writing to data file');

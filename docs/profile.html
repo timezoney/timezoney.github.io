@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2></h2>
+    <h3>(This is a test page to demonstrate that the "notifications" page successfully passes username to "profile" page to view given user's profile)</h3>
+    <script>
+
+        document.querySelector('h2').innerHTML = `${sessionStorage.getItem('user_profile')}'s Profile`
+    </script>
+</body>
+</html>

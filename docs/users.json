@@ -1,18 +1,80 @@
 [
-    {
-        "name": "some_name",
-        "password": "some_password",
-        "email": "some@email",
-        "phone": 2345678901,
-        "description": "some description",
-        "fName": "some fName",
-        "lName": "some lName",
-        "DoB": "12/6/2025",
-        "posts_id": [
-            1,
-            2,
-            3,
-            4
-        ]
-    }
+  {
+    "username": "some_name",
+    "password": "some_password",
+    "email": "some@email",
+    "phone": 2345678901,
+    "description": "some description",
+    "fName": "some fName",
+    "lName": "some lName",
+    "DoB": "12/6/2025",
+    "posts_id": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "notifications": [
+      {
+        "username": "john",
+        "fName": "John",
+        "lName": "Doe",
+        "message": "some message related to the post 4",
+        "post_id": 3
+      },
+      {
+        "username": "jane",
+        "fName": "Jane",
+        "lName": "Doe",
+        "message": "some message related to the post 5",
+        "post_id": 2
+      },
+      {
+        "username": "jack",
+        "fName": "Jack",
+        "lName": "Doe",
+        "message": "some message related to the post 1",
+        "post_id": 1
+      },
+      {
+        "username": "jake",
+        "fName": "Jake",
+        "lName": "Doe",
+        "message": "some message related to the post 2",
+        "post_id": 4
+      },
+      {
+        "username": "new_username",
+        "fName": "Daniil",
+        "lName": "Vladimirov",
+        "message": "this is a test of responding to someone's post",
+        "post_id": 4
+      }
+    ],
+    "contacts": []
+  },
+  {
+    "username": "new_notification_test",
+    "password": "some_password",
+    "email": "some@email",
+    "phone": 2345678901,
+    "description": "some description",
+    "fName": "some fName",
+    "lName": "some lName",
+    "DoB": "12/6/2025",
+    "posts_id": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "notifications": [],
+    "contacts": []
+  }
 ]
