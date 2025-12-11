@@ -29,13 +29,13 @@
                 <li><a href="./index.html">Home</a></li>
                 <li><a href="./catalog_employees.html">Catalog (employees)</a></li>
                 <li><a href="./catalog_jobs.html">Catalog (jobs)</a></li>
-                <li><a href="#">Profile</a></li>
+                <li><a href="./profile.html" class="profile_link, active">Profile</a></li>
             </ul>
             <div>
                 <a href="./notifications.html" style="margin-right: 20px;">
-                    <img id="notification-icon" src="./images/notification.png" alt="notification (inactive)">
+                    <img id="notification-icon" src="./images/notification_inactive.png" alt="notification (inactive)">
                 </a>
-                <a href="./profile.html">
+                <a href="./profile.html" class="profile_link">
                     <img src="./images/user.png" alt="profile avatar">
                 </a>
             </div>
@@ -68,6 +68,11 @@
         <script defer type="module">
             import { load_user_data, update_user_data, load_post_data } from './data_utils.js'
 
+            document.querySelectorAll('a.profile_link').forEach((link) => {
+                    link.addEventListener('click', () => {
+                        sessionStorage.setItem('user_profile', sessionStorage.getItem('logged_in_user'))
+                    })
+                })
 
             document.querySelector('button#logout').addEventListener('click', async () => {
                 sessionStorage.setItem('logged_in_user', '');
@@ -82,6 +87,10 @@
             if (!user_profile) {
                 user_profile = loggedInUser
             }
+
+            if (user_profile != loggedInUser) {
+                document.querySelector('button#logout').style.display = 'none'
+            } 
             let all_posts = await load_post_data();
             all_posts.forEach((post) => {
                 if (post.author == user_profile){

@@ -22,29 +22,34 @@
             <li><a href="./index.html">Home</a></li>
             <li><a class="active" href="#">Catalog (employees)</a></li>
             <li><a  href="./catalog_jobs.html">Catalog (jobs)</a></li>
-            <li><a href="./profile.html">Profile</a></li>
+            <li><a href="./profile.html" class="profile_link">Profile</a></li>
         </ul>
         <div>
             <a href="./notifications.html" style="margin-right: 20px;">
-                <img id="notification-icon" src="./images/notification.png" alt="notification (inactive)">
+                <img id="notification-icon" src="./images/notification_inactive.png" alt="notification (inactive)">
             </a>
-            <a href="./profile.html">
+            <a href="./profile.html" class="profile_link">
                 <img src="./images/user.png" alt="profile avatar">
             </a>
         </div>
     </header>
 
     <!-- ========== ASHTON SEARCH BAR SECTION ========== -->
+    <!-- Search bar container with input field and search button -->
     <div class="search-wrapper">
         <div class="search-container">
+            <!-- Text input for user to type search query -->
             <input type="text" id="searchInput" class="search-box" placeholder="Search by title, description, author or field of service...">
+            <!-- Button to trigger search -->
             <button id="searchBtn" class="search-btn">Search</button>
         </div>
 
+        <!-- Message showing what term was searched (hidden until search is performed) -->
         <div class="search-results-message" id="searchResultsMessage" style="display: none;">
             Showing results for "<span id="searchQuery"></span>"
         </div>
 
+        <!-- Message shown when no posts match the search -->
         <div class="no-results-message" id="noResultsMessage" style="display: none;">
             No posts found matching your search.
         </div>
@@ -57,7 +62,7 @@
 
     <footer>
         <p>&copy; 2025 Jobster</p>
-        <p>Author: Daniil</p>
+        <p>Author: Daniil, Ashton</p>
     </footer>
     <!--=========== Daniil code that was used by ashton later ========== -->
 
@@ -87,25 +92,37 @@
 
     <!-- ==================== ASHTON CODE (START) ==================== -->
     <script type="module" defer>
+        // Import function to load post data from database
         import { load_post_data } from './data_utils.js'
 
+        document.querySelectorAll('a.profile_link').forEach((link) => {
+                    link.addEventListener('click', () => {
+                        sessionStorage.setItem('user_profile', sessionStorage.getItem('logged_in_user'))
+                    })
+                })
+        // Variable to store the current search term
         let searchQuery = '';
+        // Load all posts from the database
         let allPosts = await load_post_data();
 
+        // Function that filters and displays posts based on search query
         function displayFilteredPosts() {
+            // Get references to search message elements
             const searchResultsMessage = document.getElementById('searchResultsMessage');
             const noResultsMessage = document.getElementById('noResultsMessage');
             const searchQuerySpan = document.getElementById('searchQuery');
 
-            // Clear main
+            // Clear main - removes any previously displayed posts
             document.querySelector('main').innerHTML = '';
 
-            // Filter by type first
-            let postsToDisplay = allPosts.filter(post => post.type === "employee");
+            // Filter by type first - only show employee posts
+            let postsToDisplay = allPosts.filter(post => post.type === "Employee");
 
-            // Then apply search filter
+            // Then apply search filter - if user has entered a search term
             if (searchQuery) {
+                // Convert to lowercase for case-insensitive search
                 const query = searchQuery.toLowerCase();
+                // Filter posts that contain the search term in title, description, author, or field
                 postsToDisplay = postsToDisplay.filter(post => {
                     return post.title.toLowerCase().includes(query) ||
                            post.short_description.toLowerCase().includes(query) ||
@@ -113,18 +130,23 @@
                            post.field_of_service.toLowerCase().includes(query);
                 });
 
+                // Show message indicating what was searched
                 searchResultsMessage.style.display = 'block';
                 searchQuerySpan.textContent = searchQuery;
             } else {
+                // Hide search message when no search is active
                 searchResultsMessage.style.display = 'none';
             }
 
             // Display results or no results message
             if (postsToDisplay.length === 0) {
+                // Show "no results" message if nothing matches
                 noResultsMessage.style.display = 'block';
             } else {
+                // Hide "no results" and display the matching posts
                 noResultsMessage.style.display = 'none';
 
+                // Loop through each post and add it to the page
                 postsToDisplay.forEach((post) => {
                     document.querySelector('main').innerHTML += `<a href="./view_post.html" id="${post.id}">
                                                                     <img src="${post.image}" alt="${post.image}" width="200px">
@@ -135,30 +157,37 @@
                                                                 </a>`;
                 });
 
+                // Add click listeners to each post link
                 document.querySelectorAll('main a').forEach((link) => {
                     link.addEventListener('click', () => {
+                        // Save post ID to session storage so view page knows which post to display
                         sessionStorage.setItem('post_id', link.id);
+                        // Save current page so user can return here with back button
                         sessionStorage.setItem('last_page', './catalog_employees.html');
                     });
                 });
             }
         }
 
-        // Search button click
+        // Search button click - trigger search when button is clicked
         document.getElementById('searchBtn').addEventListener('click', () => {
+            // Get search input value and trim whitespace
             searchQuery = document.getElementById('searchInput').value.trim();
+            // Update the displayed posts based on new search
             displayFilteredPosts();
         });
 
-        // Enter key press
+        // Enter key press - allow user to search by pressing Enter
         document.getElementById('searchInput').addEventListener('keypress', (e) => {
             if (e.key === 'Enter') {
+                // Get search input value and trim whitespace
                 searchQuery = document.getElementById('searchInput').value.trim();
+                // Update the displayed posts based on new search
                 displayFilteredPosts();
             }
         });
 
-        // Initial display
+        // Initial display - show all employee posts when page loads
         displayFilteredPosts();
     </script>
     <!-- ==================== ASHTON (END) ==================== -->

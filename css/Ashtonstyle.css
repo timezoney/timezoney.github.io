@@ -44,12 +44,12 @@ header ul li a, header ul li a:visited{
     border: 2px solid black;
 }
 
-header ul li a:not(#active):hover {
+header ul li a:not(.active):hover {
     background-color: black;
     color: white
 }
 
-header ul li a#active {
+header ul li a.active {
     background-color: rgb(194, 194, 194);
 }
 

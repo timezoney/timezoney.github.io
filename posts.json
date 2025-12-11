@@ -6,7 +6,7 @@
     "short_description": "Short description of the post 1",
     "full_description": "Full description of the post 1",
     "field_of_service": "IT",
-    "type": "employee",
+    "type": "Employee",
     "image": "./images/administrator.jpg"
   },
   {
@@ -16,7 +16,7 @@
     "short_description": "Short description of the post 2",
     "full_description": "Full description of the post 2",
     "field_of_service": "Design",
-    "type": "employee",
+    "type": "Employee",
     "image": "./images/cashier.jpg"
   },
   {
@@ -26,7 +26,7 @@
     "short_description": "Short description of the post 3",
     "full_description": "Full description of the post 3",
     "field_of_service": "Engineering",
-    "type": "job",
+    "type": "Job",
     "image": "./images/cook.jpg"
   },
   {
@@ -36,7 +36,7 @@
     "short_description": "Short description of the post 4",
     "full_description": "Full description of the post 4",
     "field_of_service": "Healthcare",
-    "type": "employee",
+    "type": "Employee",
     "image": "./images/delivery.jpg"
   },
   {
@@ -46,7 +46,7 @@
     "short_description": "I forgot my keys at home today.",
     "full_description": "Full description of the post 5",
     "field_of_service": "Education",
-    "type": "job",
+    "type": "Job",
     "image": "./images/design.jpg"
   },
   {
@@ -56,7 +56,7 @@
     "short_description": "Short description of the post 6",
     "full_description": "Full description of the post 6",
     "field_of_service": "Legal Services",
-    "type": "job",
+    "type": "Job",
     "image": "./images/education.jpg"
   },
   {
@@ -66,7 +66,7 @@
     "short_description": "Short description of the post 7",
     "full_description": "Full description of the post 7",
     "field_of_service": "Education",
-    "type": "employee",
+    "type": "Employee",
     "image": "./images/engineering.jpg"
   },
   {
@@ -76,7 +76,7 @@
     "short_description": "We walked slowly through the park.",
     "full_description": "Full description of the post 8",
     "field_of_service": "Design",
-    "type": "employee",
+    "type": "Employee",
     "image": "./images/household.jpg"
   },
   {
@@ -86,7 +86,7 @@
     "short_description": "Short description of the post 9",
     "full_description": "Full description of the post 9",
     "field_of_service": "Design",
-    "type": "employee",
+    "type": "Employee",
     "image": "./images/IT.jpg"
   },
   {
@@ -96,7 +96,7 @@
     "short_description": "Short description of the post 10",
     "full_description": "Full description of the post 10",
     "field_of_service": "Design",
-    "type": "job",
+    "type": "Job",
     "image": "./images/deal.jpg"
   },
   {
@@ -106,7 +106,7 @@
     "short_description": "BRIEF SECRIPTION OF SOME JOB",
     "full_description": "FULL DESCRIPTION OF SOME JOB. FULL DESCRIPTION OF SOME JOB. FULL DESCRIPTION OF SOME JOB. FULL DESCRIPTION OF SOME JOB.",
     "field_of_service": "General",
-    "type": "job",
+    "type": "Job",
     "image": "./images/default.png"
   },
   {
@@ -116,7 +116,7 @@
     "short_description": "ASDQWDSA",
     "full_description": "QDWQSCQWDWQ",
     "field_of_service": "General",
-    "type": "job",
+    "type": "Job",
     "image": "./images/default.png"
   },
   {
@@ -126,7 +126,7 @@
     "short_description": "educate",
     "full_description": "educate everyone",
     "field_of_service": "EDUCATION",
-    "type": "job",
+    "type": "Job",
     "image": "./images/default.png"
   }
 ]

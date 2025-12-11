@@ -1,3 +1,4 @@
+/* General body styling - sets up flexbox layout for sticky footer */
 body {
     background-color: white;
     min-height: 100vh;
@@ -5,14 +6,16 @@ body {
     flex-direction: column;
 }
 
+/* Main content area - centered with max width */
 main {
     max-width: 900px;
     width: 70%;
     margin: 20px auto;
     padding: 0 20px;
-    flex: 1;
+    flex: 1; /* Allows main to grow and push footer down */
 }
 
+/* Loading message styling - shown while post data is being fetched */
 .loading-message {
     text-align: center;
     padding: 60px 20px;
@@ -20,59 +23,68 @@ main {
     color: #808080;
 }
 
+/* Error message container - shown when post is not found */
 .error-message {
     text-align: center;
     padding: 60px 20px;
 }
 
+/* Error message heading */
 .error-message h2 {
     color: #153B50;
     font-size: 28px;
     margin-bottom: 15px;
 }
 
+/* Error message paragraph text */
 .error-message p {
     color: #808080;
     font-size: 16px;
     margin-bottom: 25px;
 }
 
+/* Main post container - holds entire post content */
 .post-container {
-    background-color: #FFF2C5;
+    background-color: #FFF2C5; /* Light yellow background */
     border: 3px solid black;
     border-radius: 8px;
     overflow: hidden;
     margin-bottom: 40px;
 }
 
+/* Post header section - contains title and metadata */
 .post-header {
-    background-color: #153B50;
+    background-color: #153B50; /* Dark blue background */
     color: white;
     padding: 30px;
 }
 
+/* Post title styling */
 .post-header h2 {
     font-size: 32px;
     margin: 0 0 15px 0;
     font-weight: bold;
 }
 
+/* Post metadata container - author and field tags */
 .post-meta {
     display: flex;
     gap: 15px;
     align-items: center;
-    flex-wrap: wrap;
+    flex-wrap: wrap; /* Allows wrapping on smaller screens */
 }
 
+/* Author name styling */
 .post-author {
-    color: #FFE48A;
+    color: #FFE48A; /* Light yellow text */
     font-size: 16px;
     font-weight: bold;
 }
 
-.post-field {
+/* Field of service badge styling */
+.post-field, .post-type {
     display: inline-block;
-    background-color: #56A3A6;
+    background-color: #56A3A6; /* Teal background */
     color: white;
     padding: 6px 15px;
     border-radius: 4px;
@@ -80,10 +92,12 @@ main {
     font-weight: bold;
 }
 
+/* Post body content area */
 .post-body {
     padding: 35px;
 }
 
+/* Post image styling */
 .post-image {
     width: 100%;
     max-width: 400px;
@@ -91,13 +105,15 @@ main {
     border: 2px solid #153B50;
     border-radius: 8px;
     margin: 0 auto 30px auto;
-    display: block;
+    display: block; /* Centers the image */
 }
 
+/* Content section container (summary, description) */
 .section {
     margin-bottom: 30px;
 }
 
+/* Section heading styling */
 .section h3 {
     font-size: 20px;
     color: #153B50;
@@ -105,25 +121,28 @@ main {
     font-weight: bold;
 }
 
+/* Section text content styling */
 .section p,
 .section div {
     font-size: 16px;
     line-height: 1.6;
     color: #000000;
-    white-space: pre-wrap;
+    white-space: pre-wrap; /* Preserves line breaks and formatting */
 }
 
+/* Action buttons container at bottom of post */
 .post-actions {
     display: flex;
     gap: 15px;
     margin-top: 30px;
     padding-top: 30px;
-    border-top: 2px solid #153B50;
+    border-top: 2px solid #153B50; /* Separator line above buttons */
 }
 
+/* Shared button styling for back and contact buttons */
 .btn-back,
 .btn-contact {
-    flex: 1;
+    flex: 1; /* Makes buttons equal width */
     padding: 12px 30px;
     border: 2px solid black;
     border-radius: 4px;
@@ -135,54 +154,61 @@ main {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
+/* Back button specific styling */
 .btn-back {
     background-color: #FFFFFF;
     color: black;
 }
 
+/* Back button hover effect */
 .btn-back:hover {
     background-color: #000000;
     color: white;
 }
 
+/* Contact button specific styling */
 .btn-contact {
-    background-color: #FFC914;
+    background-color: #FFC914; /* Yellow background */
     color: black;
 }
 
+/* Contact button hover effect */
 .btn-contact:hover {
-    background-color: #FFE48A;
+    background-color: #FFE48A; /* Lighter yellow on hover */
 }
 
+/* Tablet responsive styles - screens 768px and smaller */
 @media (max-width: 768px) {
     main {
         margin: 20px auto;
     }
 
     .post-header h2 {
-        font-size: 24px;
+        font-size: 24px; /* Smaller title on tablets */
     }
 
     .post-body {
-        padding: 25px;
+        padding: 25px; /* Reduced padding */
     }
 
+    /* Stack buttons vertically on smaller screens */
     .post-actions {
         flex-direction: column;
     }
 }
 
+/* Mobile responsive styles - screens 600px and smaller */
 @media (max-width: 600px) {
     .post-header {
-        padding: 20px;
+        padding: 20px; /* Further reduced padding for mobile */
     }
 
     .section h3 {
-        font-size: 18px;
+        font-size: 18px; /* Smaller section headings */
     }
 
     .section p,
     .section div {
-        font-size: 15px;
+        font-size: 15px; /* Smaller text for readability on small screens */
     }
 }

@@ -21,13 +21,13 @@
                 <li><a href="./index.html">Home</a></li>
                 <li><a href="./catalog_employees.html">Catalog (employees)</a></li>
                 <li><a href="./catalog_jobs.html">Catalog (jobs)</a></li>
-                <li><a href="./profile.html">Profile</a></li>
+                <li><a href="./profile.html" class="profile_link">Profile</a></li>
             </ul>
             <div>
                 <a href="./notifications.html" style="margin-right: 20px;">
-                    <img id="notification-icon" src="./images/notification.png" alt="notification (inactive)">
+                    <img id="notification-icon" src="./images/notification_inactive.png" alt="notification (inactive)">
                 </a>
-                <a href="./profile.html">
+                <a href="./profile.html" class="profile_link">
                     <img src="./images/user.png" alt="profile avatar">
                 </a>
             </div>
@@ -54,6 +54,12 @@
 
         <script type="module" defer>
             import { load_user_data } from './data_utils.js'
+            
+            document.querySelectorAll('a.profile_link').forEach((link) => {
+                    link.addEventListener('click', () => {
+                        sessionStorage.setItem('user_profile', sessionStorage.getItem('logged_in_user'))
+                    })
+                })
 
             try {
                 let all_users = await load_user_data()

@@ -73,7 +73,15 @@
     "fName": "Daniil",
     "lName": "Vladimirov",
     "DoB": "2025-12-01",
-    "notifications": [],
+    "notifications": [
+      {
+        "username": "some_name",
+        "fName": "Daniil",
+        "lName": "some lName",
+        "message": "Hello!!!!",
+        "post_id": 1765441282201
+      }
+    ],
     "contacts": []
   }
 ]
