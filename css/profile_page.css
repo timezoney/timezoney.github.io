@@ -1,0 +1,249 @@
+html {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    min-width: 450px;
+    background-color: #153B50;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+h1 {font-size: 2em}
+h2 {font-size: 1.5em}
+h3 {font-size: 1.125em}
+
+/* header style */
+
+header {
+    background-color: #FFC914;
+    padding: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 3px black solid;
+}
+
+header a, header a:visited {
+    color: black;
+    text-decoration: none;
+}
+
+header h1 {
+    font-size: 2.5em;
+    margin: 0px;
+}
+
+header ul {
+    padding: 0px;
+}
+
+header ul li{
+    display: inline-block;
+}
+
+header ul li a, header ul li a:visited{
+    background-color: white;
+    text-decoration: none;
+    text-align: center;
+    padding: 10px;
+    color: black;
+    font-weight: bold;
+    margin: 0px -4px 0px;
+    border: 2px solid black;
+}
+
+header ul li a:hover {
+    background-color: black;
+    color: white
+}
+
+/* header ul li a#active {
+    background-color: rgb(194, 194, 194);
+} */
+
+header img {
+    width: 70px;
+    height: 70px;
+}
+
+/* main style */
+main {
+    position: relative;
+    flex: 1;
+    width: 70%;
+    margin: 0px auto;
+    border-right: 3px black solid;
+    border-left: 3px black solid;
+    background-color: white;
+    padding: 20px;
+}
+
+main img {
+    width: 150px;
+    height: auto;
+    margin: 50px auto;
+    display: block;
+
+}
+
+main button#logout {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 1.4em;
+    background-color: #FFC914;
+}
+
+main button#logout:hover {
+    background-color: #FFE48A;
+}
+
+main div#profile_grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+main div#profile_grid section#user_info {
+    text-align: center;
+    align-self: center;
+    width: 40%;
+    background-color: #FFE48A;
+    border-radius: 20px;
+    padding: 30px;
+    overflow: auto;
+}
+
+main div#profile_grid section#user_posts {
+    text-align: center;
+    border: #FFE48A 3px solid;
+    border-radius: 20px;
+    padding: 30px;
+    overflow: auto;
+    margin: 40px;
+}
+
+main div#profile_grid section#user_posts div{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    align-content: start;
+}
+
+
+main div#profile_grid section#user_posts a {
+    border: 1px solid black;
+    display: block;
+    width: 350px;
+    text-decoration: none;
+    color: black;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+    margin: 0px;
+}
+
+main div#profile_grid section#user_info button {
+    background-color: #366F7B;
+    font-weight: bold;
+    color: white;
+    padding: 10px;
+    display: block;
+    margin: 0px auto;
+    border: 0px;
+    border-radius: 10px;
+}
+
+main div#profile_grid section#user_info button:hover {
+    background-color: #56A3A6;
+}
+
+main div#profile_grid section#user_info form input[type="submit"] {
+    background-color: #366F7B;
+    font-weight: bold;
+    color: white;
+    padding: 10px;
+    display: block;
+    margin: 0px auto;
+    border: 0px;
+    border-radius: 10px;
+}
+
+main div#profile_grid section#user_info form input[type="submit"]:hover {
+    background-color: #56A3A6;
+}
+
+
+/* footer style */
+
+footer {
+   background-color: #FFC914;
+   text-align: center;
+   border-top: 3px black solid;
+   width: 100%;
+
+}
+
+footer p {
+    display: inline-block;
+    font-weight: bold;
+    margin: 20px;
+}
+
+/* CSS media queries */
+@media screen and (max-width: 1200px) {
+
+    body {
+        font-size: 0.8em;
+    }
+
+    header img {
+        width: 49px;
+        height: auto;
+    }
+
+    main img {
+        width: 105px;
+        height: auto;
+    }
+
+}
+
+@media screen and (max-width: 1000px) {
+
+    body {
+        font-size: 0.6em;
+    }
+
+    header img {
+        width: 35px;
+        height: auto;
+    }
+
+    main img {
+        width: 75px;
+        height: auto;
+    }
+
+}
+
+@media screen and (max-width: 850px) {
+
+    body {
+        font-size: 0.4em;
+    }
+
+    header img {
+        width: 21px;
+        height: auto;
+    }
+
+    main img {
+        width: 45px;
+        height: auto;
+    }
+
+}

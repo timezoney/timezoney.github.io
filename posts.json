@@ -1,0 +1,132 @@
+[
+  {
+    "id": "1",
+    "author": "some_name",
+    "title": "IT",
+    "short_description": "Short description of the post 1",
+    "full_description": "Full description of the post 1",
+    "field_of_service": "IT",
+    "type": "employee",
+    "image": "./images/administrator.jpg"
+  },
+  {
+    "id": "2",
+    "author": "some_name",
+    "title": "Design",
+    "short_description": "Short description of the post 2",
+    "full_description": "Full description of the post 2",
+    "field_of_service": "Design",
+    "type": "employee",
+    "image": "./images/cashier.jpg"
+  },
+  {
+    "id": "3",
+    "author": "some_name",
+    "title": "Cars",
+    "short_description": "Short description of the post 3",
+    "full_description": "Full description of the post 3",
+    "field_of_service": "Engineering",
+    "type": "job",
+    "image": "./images/cook.jpg"
+  },
+  {
+    "id": "4",
+    "author": "some_name",
+    "title": "Pizza",
+    "short_description": "Short description of the post 4",
+    "full_description": "Full description of the post 4",
+    "field_of_service": "Healthcare",
+    "type": "employee",
+    "image": "./images/delivery.jpg"
+  },
+  {
+    "id": "5",
+    "author": "some_name",
+    "title": "Title 5",
+    "short_description": "I forgot my keys at home today.",
+    "full_description": "Full description of the post 5",
+    "field_of_service": "Education",
+    "type": "job",
+    "image": "./images/design.jpg"
+  },
+  {
+    "id": "6",
+    "author": "Oliver",
+    "title": "Title 6",
+    "short_description": "Short description of the post 6",
+    "full_description": "Full description of the post 6",
+    "field_of_service": "Legal Services",
+    "type": "job",
+    "image": "./images/education.jpg"
+  },
+  {
+    "id": "7",
+    "author": "some_name",
+    "title": "Title 7",
+    "short_description": "Short description of the post 7",
+    "full_description": "Full description of the post 7",
+    "field_of_service": "Education",
+    "type": "employee",
+    "image": "./images/engineering.jpg"
+  },
+  {
+    "id": "8",
+    "author": "some_name",
+    "title": "Title 8",
+    "short_description": "We walked slowly through the park.",
+    "full_description": "Full description of the post 8",
+    "field_of_service": "Design",
+    "type": "employee",
+    "image": "./images/household.jpg"
+  },
+  {
+    "id": "9",
+    "author": "some_name",
+    "title": "Title 9",
+    "short_description": "Short description of the post 9",
+    "full_description": "Full description of the post 9",
+    "field_of_service": "Design",
+    "type": "employee",
+    "image": "./images/IT.jpg"
+  },
+  {
+    "id": "10",
+    "author": "Lucas",
+    "title": "Title 10",
+    "short_description": "Short description of the post 10",
+    "full_description": "Full description of the post 10",
+    "field_of_service": "Design",
+    "type": "job",
+    "image": "./images/deal.jpg"
+  },
+  {
+    "id": "1765438243723",
+    "author": "true",
+    "title": "SOME JOB",
+    "short_description": "BRIEF SECRIPTION OF SOME JOB",
+    "full_description": "FULL DESCRIPTION OF SOME JOB. FULL DESCRIPTION OF SOME JOB. FULL DESCRIPTION OF SOME JOB. FULL DESCRIPTION OF SOME JOB.",
+    "field_of_service": "General",
+    "type": "job",
+    "image": "./images/default.png"
+  },
+  {
+    "id": "1765438304022",
+    "author": "true",
+    "title": "TEST IMAGES",
+    "short_description": "ASDQWDSA",
+    "full_description": "QDWQSCQWDWQ",
+    "field_of_service": "General",
+    "type": "job",
+    "image": "./images/default.png"
+  },
+  {
+    "id": "1765441282201",
+    "author": "Daniilll",
+    "title": "SOME JOB 2",
+    "short_description": "educate",
+    "full_description": "educate everyone",
+    "field_of_service": "EDUCATION",
+    "type": "job",
+    "image": "./images/default.png"
+  }
+]

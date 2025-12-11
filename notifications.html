@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Notifications</title>
+        <meta charset="UTF-8">
+        <meta name="author" content="Daniil">
+        <meta name="keywords" content="notifications, post response">
+        <meta name="description" content="page showing people that are interested in user's post">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./css/normalize.css">
+        <link rel="stylesheet" href="./css/notifications.css">
+    </head>
+    <body>
+
+        <header>
+            <a href="./index.html">
+                <h1>Jobster</h1>
+            </a>
+
+            <ul>
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./catalog_employees.html">Catalog (employees)</a></li>
+                <li><a href="./catalog_jobs.html">Catalog (jobs)</a></li>
+                <li><a href="./profile.html">Profile</a></li>
+            </ul>
+            <div>
+                <a href="./notifications.html" style="margin-right: 20px;">
+                    <img id="notification-icon" src="./images/notification.png" alt="notification (inactive)">
+                </a>
+                <a href="./profile.html">
+                    <img src="./images/user.png" alt="profile avatar">
+                </a>
+            </div>
+            
+        </header>
+
+        <main>
+
+        </main>
+
+        <footer>
+            <p>&copy; 2025 Jobster</p>
+            <p>Author: Daniil</p>
+        </footer>
+
+        <script type="module" defer>
+            import { load_user_data, load_post_data, update_user_data } from './data_utils.js'
+
+            document.querySelector('img#notification-icon').src = './images/notification.png';
+
+            let all_users = await load_user_data();
+            let current_user = all_users[all_users.findIndex(user => user.username == sessionStorage.getItem('logged_in_user'))];
+
+            async function load_motifications() {
+                document.querySelector('main').innerHTML = ''
+
+                let all_posts = await load_post_data();
+                for (let [n_index, notification] of current_user.notifications.entries()) {
+
+                    let current_post = all_posts[all_posts.findIndex(post => post.id == notification.post_id)];
+                    document.querySelector('main').innerHTML += `<div id="${n_index}" data-username="${notification.username}">
+                                                                    <h2><a href="./profile.html" id="${notification.username}">${notification.fName} ${notification.lName}</a></h2>
+                                                                    <h3>${notification.message}</h3>
+                                                                    <p>Responded to your post: <b><a href="./view_post.html" id="${notification.post_id}">${current_post.title}</a></b></p>
+                                                                    <button type="button" class="acc">Accept</button><button type="button" class="rej">Reject</button>
+                                                                </div>`
+                };
+
+                document.querySelectorAll('h2 a').forEach((link) => {
+                    link.addEventListener('click', () => {
+                        sessionStorage.setItem('user_profile', link.id)
+                    })
+                })
+                document.querySelectorAll('main a').forEach((link) => {
+                    link.addEventListener('click', () => {
+                        sessionStorage.setItem('post_id', link.id)
+                    })
+                })
+
+                document.querySelectorAll('button.rej').forEach((button) => {
+                    button.addEventListener('click', async () => {
+                        let notif_index = Number(button.closest('div').id);
+                        
+                        let new_notifications = [...current_user.notifications];
+                        new_notifications.splice(notif_index, 1);
+                        let updated_user = {...current_user, notifications: new_notifications};
+                        await update_user_data(current_user.username, updated_user);
+
+                        all_users = await load_user_data();
+                        current_user = all_users[all_users.findIndex(user => user.username == sessionStorage.getItem('logged_in_user'))];
+                        await load_motifications();
+                    })
+                })
+
+                document.querySelectorAll('button.acc').forEach((button) => {
+                    button.addEventListener('click', async () => {
+                        
+                        let new_contacts = [...current_user.contacts]
+                        new_contacts.push(button.closest('div').dataset.username)
+
+                        let notif_index = Number(button.closest('div').id);
+                        
+                        let new_notifications = [...current_user.notifications];
+                        new_notifications.splice(notif_index, 1);
+                        let updated_user = {...current_user, notifications: new_notifications, contacts: new_contacts};
+                        await update_user_data(current_user.username, updated_user);
+
+                        all_users = await load_user_data();
+                        current_user = all_users[all_users.findIndex(user => user.username == sessionStorage.getItem('logged_in_user'))];
+                        await load_motifications();
+                    })
+                })
+            }
+            
+            await load_motifications();
+
+        </script>
+    </body>
+</html>

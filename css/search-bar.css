@@ -1,0 +1,127 @@
+.search-wrapper {
+    width: 70%;
+    margin: 20px auto 20px auto;
+    background-color: white;
+    border-left: 3px solid black;
+    border-right: 3px solid black;
+    border-bottom: 3px solid black;
+    border-top: 3px solid black;
+    padding: 20px;
+}
+
+.search-container {
+    width: 70%;
+    margin: 0 auto;
+    display: flex;
+    gap: 10px;
+}
+
+.search-box {
+    flex: 1;
+    padding: 12px 20px;
+    border: 2px solid #153B50;
+    border-radius: 4px;
+    font-size: 1em;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.search-box:focus {
+    outline: none;
+    border-color: #56A3A6;
+    background-color: #FFF2C5;
+}
+
+.search-btn {
+    padding: 12px 30px;
+    background-color: #FFC914;
+    color: black;
+    border: 2px solid black;
+    border-radius: 4px;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.search-btn:hover {
+    background-color: #FFE48A;
+}
+
+.search-results-message {
+    /* width: 100%; */
+    text-align: center;
+    padding: 15px;
+    margin-top: 20px;
+    background-color: #56A3A6;
+    color: white;
+    border-radius: 4px;
+    font-weight: bold;
+    border: 2px solid black;
+}
+
+.search-results-message span {
+    color: #FFE48A;
+    font-weight: bold;
+}
+
+.no-results-message {
+    width: 100%;
+    text-align: center;
+    padding: 40px 20px;
+    font-size: 1.125em;
+    color: #808080;
+}
+
+@media screen and (max-width: 1000px) {
+    .search-container {
+        gap: 7px;
+        margin: 0 0 14px 0;
+    }
+
+    .search-box {
+        padding: 8px 14px;
+    }
+
+    .search-btn {
+        padding: 8px 21px;
+    }
+
+    .search-wrapper {
+        padding: 14px;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .search-container {
+        flex-direction: column;
+        gap: 5px;
+        margin: 0 0 10px 0;
+    }
+
+    .search-box {
+        padding: 6px 10px;
+    }
+
+    .search-btn {
+        width: 100%;
+        padding: 6px 15px;
+    }
+
+    .search-wrapper {
+        padding: 10px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .search-box {
+        padding: 4px 6px;
+    }
+
+    .search-btn {
+        padding: 4px 9px;
+    }
+
+    .search-wrapper {
+        padding: 6px;
+    }
+}

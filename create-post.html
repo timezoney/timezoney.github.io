@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Daniil">
+    <meta name="description" content="Create a new job post on Jobster">
+    <title>Create Job Post - Jobster</title>
+    <link rel="stylesheet" href="./css/Anormalize.css">
+    <link rel="stylesheet" href="./css/Ashtonstyle.css">
+    <link rel="stylesheet" href="./css/create-post.css">
+</head>
+<body>
+
+    <header>
+        <a href="./index.html">
+            <h1>Jobster</h1>
+        </a>
+
+        <ul>
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./catalog_employees.html">Catalog (employees)</a></li>
+            <li><a href="./catalog_jobs.html">Catalog (jobs)</a></li>
+            <li><a href="./profile.html">Profile</a></li>
+        </ul>
+        <div>
+            <a href="./notifications.html" style="margin-right: 20px;">
+                <img id="notification-icon" src="./images/notification.png" alt="notification (inactive)">
+            </a>
+            <a href="./profile.html">
+                <img src="./images/user.png" alt="profile avatar">
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <div class="page-header">
+            <h2>Create a Job Post</h2>
+            <p>Fill out the details below to post a new job opportunity</p>
+        </div>
+
+        <div class="form-container">
+            <div class="success-message" id="successMessage">
+                Job post created successfully!
+            </div>
+
+            <form id="jobPostForm">
+                <div class="form-group">
+                    <label for="postType">Post Type <span class="required">*</span></label>
+                    <select id="postType" name="postType" required>
+                        <option value="job">Job Posting</option>
+                        <option value="employee">Employee/Service Posting</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="title">Job Title <span class="required">*</span></label>
+                    <input type="text" id="title" name="title" placeholder="e.g. Senior Software Engineer" required maxlength="100">
+                    <div class="char-count"><span id="titleCount">0</span>/100</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="fieldOfService">Field of Service <span class="required">*</span></label>
+                    <input type="text" id="fieldOfService" name="fieldOfService" placeholder="e.g. Technology, Healthcare, Finance" required maxlength="100">
+                    <div class="char-count"><span id="fieldCount">0</span>/100</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="briefDescription">Brief Description <span class="required">*</span></label>
+                    <textarea id="briefDescription" name="briefDescription" placeholder="A short summary of the position" required maxlength="200"></textarea>
+                    <div class="char-count"><span id="briefCount">0</span>/200</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="fullDescription">Full Description <span class="required">*</span></label>
+                    <textarea id="fullDescription" name="fullDescription" class="full-description" placeholder="Detailed job description" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="images">Images (Optional)</label>
+                    <div class="file-input-wrapper">
+                        <input type="file" id="images" name="images" accept="image/*" multiple>
+                        <label for="images" class="file-input-label">
+                            Click to upload images
+                        </label>
+                    </div>
+                    <div class="file-preview" id="filePreview"></div>
+                </div>
+
+                <div class="btn-group">
+                    <button type="button" class="btn-cancel" id="cancelBtn">Cancel</button>
+                    <button type="button" class="btn-submit" id="submitBtn">Publish Job Post</button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Jobster</p>
+        <p>Author: Daniil</p>
+    </footer>
+
+    <script src="./create-post.js"></script>
+</body>
+</html>

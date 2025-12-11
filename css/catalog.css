@@ -1,0 +1,172 @@
+html {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    min-width: 450px;
+    background-color: #153B50;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+h1 {font-size: 2em}
+h2 {font-size: 1.5em}
+h3 {font-size: 1.125em}
+
+/* header style */
+
+header {
+    background-color: #FFC914;
+    padding: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 3px black solid;
+}
+
+header a, header a:visited {
+    color: black;
+    text-decoration: none;
+}
+
+header h1 {
+    font-size: 2.5em;
+    margin: 0px;
+}
+
+header ul {
+    padding: 0px;
+}
+
+header ul li{
+    display: inline-block;
+}
+
+header ul li a, header ul li a:visited{
+    background-color: white;
+    text-decoration: none;
+    text-align: center;
+    padding: 10px;
+    color: black;
+    font-weight: bold;
+    margin: 0px -4px 0px;
+    border: 2px solid black;
+}
+
+header ul li a:not(.active):hover {
+    background-color: black;
+    color: white
+}
+
+header ul li a.active {
+    background-color: rgb(194, 194, 194);
+}
+
+header img {
+    width: 70px;
+    height: 70px;
+}
+
+/* main style */
+main {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    flex: 1;
+    width: 70%;
+    margin: 0px auto;
+    border-right: 3px black solid;
+    border-left: 3px black solid;
+    border-top: 3px black solid;
+    background-color: white;
+    justify-content: center;
+    align-content: start;
+    padding: 20px 20px;
+}
+
+main a {
+    border: 1px solid black;
+    display: block;
+    width: 350px;
+    text-decoration: none;
+    color: black;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+    margin: 0px;
+}
+
+main a img, main a h3, main a h5, main a p {
+    margin: 10px auto;
+}
+
+
+/* footer style */
+
+footer {
+   background-color: #FFC914;
+   text-align: center;
+   border-top: 3px black solid;
+   width: 100%;
+}
+
+footer p {
+    display: inline-block;
+    font-weight: bold;
+    margin: 20px;
+}
+
+@media screen and (max-width: 1200px) {
+
+    body {
+        font-size: 0.8em;
+    }
+
+    header img {
+        width: 49px;
+        height: auto;
+    }
+
+    main img {
+        width: 105px;
+        height: auto;
+    }
+
+}
+
+@media screen and (max-width: 1000px) {
+
+    body {
+        font-size: 0.6em;
+    }
+
+    header img {
+        width: 35px;
+        height: auto;
+    }
+
+    main img {
+        width: 75px;
+        height: auto;
+    }
+
+}
+
+@media screen and (max-width: 850px) {
+
+    body {
+        font-size: 0.4em;
+    }
+
+    header img {
+        width: 21px;
+        height: auto;
+    }
+
+    main img {
+        width: 45px;
+        height: auto;
+    }
+
+}

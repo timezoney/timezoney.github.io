@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Daniil">
+    <meta name="description" content="View job post details on Jobster">
+    <title>View Post - Jobster</title>
+    <link rel="stylesheet" href="./css/Anormalize.css">
+    <link rel="stylesheet" href="./css/Ashtonstyle.css">
+    <link rel="stylesheet" href="./css/view-post.css">
+</head>
+<body>
+
+    <header>
+        <a href="index.html">
+            <h1>Jobster</h1>
+        </a>
+
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="catalog_employees.html">Catalog (employees)</a></li>
+            <li><a href="catalog_jobs.html">Catalog (jobs)</a></li>
+            <li><a href="./profile.html">Profile</a></li>
+        </ul>
+        <div>
+            <a href="./notifications.html" style="margin-right: 20px;">
+                <img id="notification-icon" src="./images/notification.png" alt="notification (inactive)">
+            </a>
+            <a href="./profile.html">
+                <img src="./images/user.png" alt="profile avatar">
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <div id="loadingMessage" class="loading-message">
+            Loading post details...
+        </div>
+
+        <div id="errorMessage" class="error-message" style="display: none;">
+            <h2>Post Not Found</h2>
+            <p>The post you're looking for doesn't exist or has been removed.</p>
+            <button id="backBtn" class="btn-back">Back to Catalog</button>
+        </div>
+
+        <div id="postContainer" class="post-container" style="display: none;">
+            <div class="post-header">
+                <h2 id="postTitle"></h2>
+                <div class="post-meta">
+                    <span id="postAuthor" class="post-author"></span>
+                    <span id="postField" class="post-field"></span>
+                </div>
+            </div>
+
+            <div class="post-body">
+                <img id="postImage" class="post-image" src="" alt="Post image">
+                
+                <div class="section">
+                    <h3>Summary</h3>
+                    <p id="postShortDesc"></p>
+                </div>
+
+                <div class="section">
+                    <h3>Full Description</h3>
+                    <div id="postFullDesc"></div>
+                </div>
+
+                <div class="post-actions">
+                    <button id="backToCatalog" class="btn-back">Back to Catalog</button>
+                    <button id="contactBtn" class="btn-contact">Contact Employer</button>
+                    <input type="text" id="respond_message" placeholder="Enter your message">
+                </div>
+                <h4 id="result"></h4>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Jobster</p>
+        <p>Author: Daniil</p>
+    </footer>
+
+    <script src="./view-post.js"></script>
+    <script type="module" defer>
+        import { load_user_data, load_post_data, update_user_data } from './data_utils.js'
+
+        let logged_user = sessionStorage.getItem('logged_in_user')
+        let post_id = Number(sessionStorage.getItem('post_id'))
+        let contact_button = document.querySelector('button#contactBtn')
+
+        let all_posts = await load_post_data();
+        let current_post = all_posts[all_posts.findIndex(post => post.id == post_id)]
+
+        let all_users = await load_user_data();
+        let post_author_user = all_users[all_users.findIndex(user => user.username == current_post.author)]
+        let current_user = all_users[all_users.findIndex(user => user.username == logged_user)]
+
+        contact_button.addEventListener('click', async () => {
+            let new_notification = {
+                                    "username": `${current_user.username}`,
+                                    "fName": `${current_user.fName}`,
+                                    "lName": `${current_user.lName}`,
+                                    "message": `${document.getElementById('respond_message').value}`,
+                                    "post_id": post_id
+                                };
+            
+            let updated_notifications = [...post_author_user.notifications];
+            updated_notifications.push(new_notification);
+            let updated_user = {...post_author_user, notifications: updated_notifications};
+            await update_user_data(post_author_user.username, updated_user);
+            let result_msg = document.querySelector('h4#result')
+            result_msg.innerHTML = 'Response sent!';
+            setTimeout(() => {
+                result_msg.innerHTML = '';
+            }, 3000)
+        })
+    </script>
+</body>
+</html>

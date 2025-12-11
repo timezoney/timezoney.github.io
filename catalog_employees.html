@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catalog (Employees)</title>
+    <meta name="author" content="Daniil">
+    <meta name="keywords" content="catalog, posts">
+    <meta name="description" content="Catalog presenting posts made by other users">
+    <link rel="stylesheet" href="./css/normalize.css">
+    <link rel="stylesheet" href="./css/catalog.css">
+    <!-- ========== ADDED: SEARCH BAR STYLING ========== -->
+    <link rel="stylesheet" href="./css/search-bar.css">
+    <!-- =============================================== -->
+</head>
+<body>
+    <header>
+        <a href="./index.html">
+            <h1>Jobster</h1>
+        </a>
+        <ul>
+            <li><a href="./index.html">Home</a></li>
+            <li><a class="active" href="#">Catalog (employees)</a></li>
+            <li><a  href="./catalog_jobs.html">Catalog (jobs)</a></li>
+            <li><a href="./profile.html">Profile</a></li>
+        </ul>
+        <div>
+            <a href="./notifications.html" style="margin-right: 20px;">
+                <img id="notification-icon" src="./images/notification.png" alt="notification (inactive)">
+            </a>
+            <a href="./profile.html">
+                <img src="./images/user.png" alt="profile avatar">
+            </a>
+        </div>
+    </header>
+
+    <!-- ========== ASHTON SEARCH BAR SECTION ========== -->
+    <div class="search-wrapper">
+        <div class="search-container">
+            <input type="text" id="searchInput" class="search-box" placeholder="Search by title, description, author or field of service...">
+            <button id="searchBtn" class="search-btn">Search</button>
+        </div>
+
+        <div class="search-results-message" id="searchResultsMessage" style="display: none;">
+            Showing results for "<span id="searchQuery"></span>"
+        </div>
+
+        <div class="no-results-message" id="noResultsMessage" style="display: none;">
+            No posts found matching your search.
+        </div>
+    </div>
+    <!-- =============================================== -->
+
+    <main>
+        
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Jobster</p>
+        <p>Author: Daniil</p>
+    </footer>
+    <!--=========== Daniil code that was used by ashton later ========== -->
+
+    <!-- <script type="module" defer>
+        import { load_post_data, load_user_data } from './data_utils.js'
+
+        let all_posts = await load_post_data();
+        all_posts.forEach((post) => {
+            if (post.type == "employee"){
+                document.querySelector('main').innerHTML += `<a href="./view_post.html" id="${post.id}">
+                                                                <img src="${post.image}" alt="${post.image}" width="200px">
+                                                                <h3>${post.title}</h3>
+                                                                <h5>${post.author}</h5>
+                                                                <p>${post.short_description}</p>
+                                                            </a>`
+            }
+            
+        });
+
+        document.querySelectorAll('main a').forEach((link) => {
+            link.addEventListener('click', () => {
+                sessionStorage.setItem('post_id', link.id)
+                sessionStorage.setItem('last_page', './catalog_employees.html')
+            })
+        })
+    </script> -->
+
+    <!-- ==================== ASHTON CODE (START) ==================== -->
+    <script type="module" defer>
+        import { load_post_data } from './data_utils.js'
+
+        let searchQuery = '';
+        let allPosts = await load_post_data();
+
+        function displayFilteredPosts() {
+            const searchResultsMessage = document.getElementById('searchResultsMessage');
+            const noResultsMessage = document.getElementById('noResultsMessage');
+            const searchQuerySpan = document.getElementById('searchQuery');
+
+            // Clear main
+            document.querySelector('main').innerHTML = '';
+
+            // Filter by type first
+            let postsToDisplay = allPosts.filter(post => post.type === "employee");
+
+            // Then apply search filter
+            if (searchQuery) {
+                const query = searchQuery.toLowerCase();
+                postsToDisplay = postsToDisplay.filter(post => {
+                    return post.title.toLowerCase().includes(query) ||
+                           post.short_description.toLowerCase().includes(query) ||
+                           post.author.toLowerCase().includes(query) ||
+                           post.field_of_service.toLowerCase().includes(query);
+                });
+
+                searchResultsMessage.style.display = 'block';
+                searchQuerySpan.textContent = searchQuery;
+            } else {
+                searchResultsMessage.style.display = 'none';
+            }
+
+            // Display results or no results message
+            if (postsToDisplay.length === 0) {
+                noResultsMessage.style.display = 'block';
+            } else {
+                noResultsMessage.style.display = 'none';
+
+                postsToDisplay.forEach((post) => {
+                    document.querySelector('main').innerHTML += `<a href="./view_post.html" id="${post.id}">
+                                                                    <img src="${post.image}" alt="${post.image}" width="200px">
+                                                                    <h3>${post.title}</h3>
+                                                                    <h4>${post.author}</h4>
+                                                                    <h5>${post.field_of_service}</h5>
+                                                                    <p>${post.short_description}</p>
+                                                                </a>`;
+                });
+
+                document.querySelectorAll('main a').forEach((link) => {
+                    link.addEventListener('click', () => {
+                        sessionStorage.setItem('post_id', link.id);
+                        sessionStorage.setItem('last_page', './catalog_employees.html');
+                    });
+                });
+            }
+        }
+
+        // Search button click
+        document.getElementById('searchBtn').addEventListener('click', () => {
+            searchQuery = document.getElementById('searchInput').value.trim();
+            displayFilteredPosts();
+        });
+
+        // Enter key press
+        document.getElementById('searchInput').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                searchQuery = document.getElementById('searchInput').value.trim();
+                displayFilteredPosts();
+            }
+        });
+
+        // Initial display
+        displayFilteredPosts();
+    </script>
+    <!-- ==================== ASHTON (END) ==================== -->
+</body>
+</html>

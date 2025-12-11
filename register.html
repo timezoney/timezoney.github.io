@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Jobster</title>
+        <meta charset="UTF-8">
+        <meta name="author" content="Daniil">
+        <meta name="keywords" content="login">
+        <meta name="description" content="Login to your account">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./css/normalize.css">
+        <link rel="stylesheet" href="./css/authorize.css">
+    </head>
+    <body>
+
+        <header>
+            <a href="./index.html">
+                <h1>Jobster</h1>
+            </a>
+
+            <ul>
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./catalog_employees.html">Catalog (employees)</a></li>
+                <li><a href="./catalog_jobs.html">Catalog (jobs)</a></li>
+                <li><a href="./profile.html">Profile</a></li>
+            </ul>
+            <div>
+                <a href="./notifications.html" style="margin-right: 20px;">
+                    <img id="notification-icon" src="./images/notification.png" alt="notification (inactive)">
+                </a>
+                <a href="./profile.html">
+                    <img src="./images/user.png" alt="profile avatar">
+                </a>
+            </div>
+        </header>
+
+        <main>
+            <h1>Sign in</h1>
+            <img src="./images/user.png" alt="user_avatar">
+            <br>
+            <form>
+                <p>Username: <input type="text" id="username" name="user_name" required></p>
+                <p>Password: <input type="password" id="password" name="user_password" minlength="8" placeholder="Minimum 8 characters" required></p>
+                <p>First Name: <input type="text" id="fName" name="first_name" required></p>
+                <p>Last Name: <input type="text" id="lName" name="last_name" required></p>
+                <p>Date of Birth: <input type="date" id="DoB" name="date_of_birth" required></p>
+                <label for="description">Description:</label>
+                <p><textarea id="description" name="description" required></textarea></p>
+                <p>Email: <input type="email" id="email" name="user_email" required></p>
+                <p>Phone: <input type="tel" id="phone" name="user_phone" pattern="[0-9]{10}" placeholder="9999999999" required></p>
+                <br>
+                <input type="submit">
+                <p id="msg"></p>
+            </form>
+            <p>Already have an account? <a href="./login.html">Sign in</a></p>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 Jobster</p>
+            <p>Author: Daniil</p>
+        </footer>
+
+
+        <script type="module" defer>
+            import { load_user_data, add_user_data } from './data_utils.js'
+
+            try {
+                let all_users = await load_user_data()
+
+                document.querySelector('form').addEventListener('submit', async (event) => {
+                    event.preventDefault()
+
+                    let s_username = document.getElementById('username').value;
+                    let s_password = document.getElementById('password').value;
+                    let fName = document.getElementById('fName').value;
+                    let lName = document.getElementById('lName').value;
+                    let DoB = document.getElementById('DoB').value;
+                    let description = document.getElementById('description').value;
+                    let email = document.getElementById('email').value;
+                    let phone = document.getElementById('phone').value;
+
+                    let button_clicked = document.activeElement.value;
+                    let user_exists = false;
+                    for (let user of all_users) {
+                        if (s_username == user.username) {
+                            user_exists = true;
+                            break;
+                        }
+                    }
+                    if (!user_exists) {
+                        sessionStorage.setItem('logged_in_user', s_username);
+                        await add_user_data(s_username, s_password, email, phone, description, fName, lName, DoB);
+                        window.location.href = './index.html';
+                    } else {
+                        document.getElementById('msg').textContent = 'User already exists'
+                    }
+                })
+            } catch(err) {
+                console.error(err)
+            }
+        </script>
+    </body>
+</html>

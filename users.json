@@ -1,0 +1,79 @@
+[
+  {
+    "username": "some_name",
+    "password": "12312312",
+    "email": "new_some@email",
+    "phone": "2345678901",
+    "description": "some description",
+    "fName": "Daniil",
+    "lName": "some lName",
+    "DoB": "2007-11-11",
+    "notifications": [
+      {
+        "username": "jane",
+        "fName": "Jane",
+        "lName": "Doe",
+        "message": "some message related to the post 5",
+        "post_id": 2
+      },
+      {
+        "username": "jack",
+        "fName": "Jack",
+        "lName": "Doe",
+        "message": "some message related to the post 1",
+        "post_id": 1
+      },
+      {
+        "username": "jake",
+        "fName": "Jake",
+        "lName": "Doe",
+        "message": "some message related to the post 2",
+        "post_id": 4
+      },
+      {
+        "username": "new_username",
+        "fName": "Daniil",
+        "lName": "Vladimirov",
+        "message": "this is a test of responding to someone's post",
+        "post_id": 4
+      }
+    ],
+    "contacts": []
+  },
+  {
+    "username": "new_notification_test",
+    "password": "some_password",
+    "email": "some@email",
+    "phone": "2345678901",
+    "description": "some description",
+    "fName": "some fName",
+    "lName": "some lName",
+    "DoB": "2025-12-11",
+    "notifications": [],
+    "contacts": []
+  },
+  {
+    "username": "asd",
+    "password": "qweasdzxc",
+    "email": "another_example@gmail.com",
+    "phone": "3233233232",
+    "description": "asdqwcas",
+    "fName": "dqwedas",
+    "lName": "dsadwqc",
+    "DoB": "2025-12-02",
+    "notifications": [],
+    "contacts": []
+  },
+  {
+    "username": "Daniilll",
+    "password": "qweasdzxc",
+    "email": "example@gmail.com",
+    "phone": "1234567890",
+    "description": "wow",
+    "fName": "Daniil",
+    "lName": "Vladimirov",
+    "DoB": "2025-12-01",
+    "notifications": [],
+    "contacts": []
+  }
+]

@@ -1,0 +1,250 @@
+/* Page background */
+body {
+    background-color: white;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Main content area */
+main {
+    max-width: 700px;
+    width: 70%;
+    margin: 20px auto;
+    padding: 0 20px;
+    flex: 1;
+}
+
+/* Page header section */
+.page-header {
+    background-color: #153B50;
+    color: white;
+    padding: 25px 30px;
+    border-radius: 8px 8px 0 0;
+    border: 3px solid black;
+    border-bottom: none;
+}
+
+.page-header h2 {
+    font-size: 28px;
+    margin: 0 0 8px 0;
+    font-weight: bold;
+}
+
+.page-header p {
+    font-size: 15px;
+    margin: 0;
+    color: #FFE48A;
+}
+
+/* Form container */
+.form-container {
+    background-color: white;
+    padding: 35px;
+    border: 3px solid black;
+    border-radius: 0 0 8px 8px;
+}
+
+/* Success message */
+.success-message {
+    display: none;
+    background-color: #56A3A6;
+    color: white;
+    padding: 15px;
+    margin-bottom: 25px;
+    border: 2px solid black;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+/* Form groups */
+.form-group {
+    margin-bottom: 25px;
+}
+
+/* Labels */
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #153B50;
+    font-size: 16px;
+}
+
+.required {
+    color: #FF0000;
+}
+
+/* Text inputs and textareas */
+input[type="text"],
+textarea,
+select {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #153B50;
+    border-radius: 4px;
+    font-size: 16px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    box-sizing: border-box;
+}
+
+input[type="text"]:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    border-color: #56A3A6;
+    background-color: #FFFFFF;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+textarea.full-description {
+    min-height: 200px;
+}
+
+/* Character count */
+.char-count {
+    text-align: right;
+    font-size: 14px;
+    color: #808080;
+    margin-top: 5px;
+}
+
+/* File input styling */
+.file-input-wrapper {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    width: 100%;
+}
+
+.file-input-wrapper input[type="file"] {
+    position: absolute;
+    left: -9999px;
+}
+
+.file-input-label {
+    display: block;
+    text-align: center;
+    padding: 20px;
+    border: 3px dashed #153B50;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #FFFFFF;
+    font-weight: bold;
+    color: #153B50;
+}
+
+.file-input-label:hover {
+    border-color: #56A3A6;
+    background-color: #FFE48A;
+}
+
+/* File preview */
+.file-preview {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.file-preview-item {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    border-radius: 4px;
+    overflow: hidden;
+    border: 3px solid #153B50;
+}
+
+.file-preview-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.remove-file {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background-color: #FF0000;
+    color: white;
+    border: 2px solid black;
+    border-radius: 4px;
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 1;
+}
+
+.remove-file:hover {
+    background-color: #CC0000;
+}
+
+/* Button group */
+.btn-group {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+/* Buttons */
+button {
+    flex: 1;
+    padding: 12px 30px;
+    border: 2px solid black;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.btn-submit {
+    background-color: #FFC914;
+    color: black;
+}
+
+.btn-submit:hover {
+    background-color: #FFE48A;
+}
+
+.btn-cancel {
+    background-color: #FFFFFF;
+    color: black;
+}
+
+.btn-cancel:hover {
+    background-color: #000000;
+    color: white;
+}
+
+/* Responsive design */
+@media (max-width: 900px) {
+    main {
+        margin: 20px auto;
+    }
+
+    .form-container {
+        padding: 25px;
+    }
+
+    .btn-group {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 600px) {
+    .page-header h2 {
+        font-size: 24px;
+    }
+
+    .form-container {
+        padding: 20px;
+    }
+}

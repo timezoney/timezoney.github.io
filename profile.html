@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Profile</title>
+        <meta charset="UTF-8">
+        <meta name="author" content="Daniil">
+        <meta name="keywords" content="profile page, personal">
+        <meta name="description" content="Profile page with information about the user, rating and reviews">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./css/normalize.css">
+        <link rel="stylesheet" href="./css/profile_page.css">
+    </head>
+    <body>
+        <script>
+            // Check if user is logged in
+            var loggedInUser = sessionStorage.getItem('logged_in_user');
+            if (!loggedInUser || loggedInUser == '') {
+                // Redirect to login page if not logged in
+                alert('Please log in first');
+                window.location.href = 'login.html';
+            }
+        </script>
+        <header>
+            <a href="./index.html">
+                <h1>Jobster</h1>
+            </a>
+
+            <ul>
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./catalog_employees.html">Catalog (employees)</a></li>
+                <li><a href="./catalog_jobs.html">Catalog (jobs)</a></li>
+                <li><a href="#">Profile</a></li>
+            </ul>
+            <div>
+                <a href="./notifications.html" style="margin-right: 20px;">
+                    <img id="notification-icon" src="./images/notification.png" alt="notification (inactive)">
+                </a>
+                <a href="./profile.html">
+                    <img src="./images/user.png" alt="profile avatar">
+                </a>
+            </div>
+        </header>
+
+        <main>
+            
+            <img src="./images/user.png" alt="profile picture">
+            <button id="logout">Log out</button>
+            <div id="profile_grid">
+
+                <section id="user_info">
+
+                </section>
+
+                <section id="user_posts">
+                    <h2>Posts</h2>
+                    <div></div>
+                </section>
+                
+            </div>
+            
+        </main>
+
+        <footer>
+            <p>&copy; 2025 Jobster</p>
+            <p>Author: Daniil</p>
+        </footer>
+
+        <script defer type="module">
+            import { load_user_data, update_user_data, load_post_data } from './data_utils.js'
+
+
+            document.querySelector('button#logout').addEventListener('click', async () => {
+                sessionStorage.setItem('logged_in_user', '');
+                window.location.href = './login.html'
+            })
+            
+
+            let all_users
+            let user_profile_info
+            let user_profile = sessionStorage.getItem('user_profile');
+
+            if (!user_profile) {
+                user_profile = loggedInUser
+            }
+            let all_posts = await load_post_data();
+            all_posts.forEach((post) => {
+                if (post.author == user_profile){
+                    document.querySelector('section#user_posts div').innerHTML += `<a href="./view_post.html" id="${post.id}">
+                                                                    <img src="${post.image}" alt="${post.image}" width="200px">
+                                                                    <h3>${post.title}</h3>
+                                                                    <h5>${post.author}</h5>
+                                                                    <p>${post.short_description}</p>
+                                                                </a>`
+                }
+                
+            });
+
+            document.querySelectorAll('main a').forEach((link) => {
+                link.addEventListener('click', () => {
+                    sessionStorage.setItem('post_id', link.id)
+                    sessionStorage.setItem('last_page', './catalog_employees.html')
+                })
+            })
+
+            async function display_profile() {
+                all_users = await load_user_data();
+                user_profile_info = all_users[all_users.findIndex(user => user.username == user_profile)];
+
+
+                document.querySelector('section#user_info').innerHTML = `<h2>Account Information</h2>
+                                                                        <p>Username: <b>${user_profile_info.username}</b></p>
+                                                                        <p>First Name: <b>${user_profile_info.fName}</b></p>
+                                                                        <p>Last Name: <b>${user_profile_info.lName}</b></p>
+                                                                        <p>Date of Birth: <b>${user_profile_info.DoB}</b></p>
+                                                                        <p>Description: <b>${user_profile_info.description}</b></p>
+                                                                        <p>Email: <b>${user_profile_info.email}</b></p>
+                                                                        <p>Phone: <b>${user_profile_info.phone}</b></p>
+                                                                        <br>
+                                                                        <button type="button" id="edit_profile">Edit Account Information</button>`
+                if (!(user_profile == loggedInUser)) {
+                    document.querySelector('button#edit_profile').style.display = 'none';
+                }
+                document.querySelector('button#edit_profile').addEventListener('click', async () => {
+                    await edit_account_info()
+                })
+            }
+
+            async function edit_account_info() {
+                document.getElementById('user_info').innerHTML = 
+                    `<h2>Account Information</h2>
+                    <form>
+                        <p>Username: <input type="text" id="username" name="user_name" value="${user_profile_info.username}" readonly></p>
+                        <p>Password: <input type="password" id="password" name="user_password" value="${user_profile_info.password}" pattern="[a-zA-Z0-9!_\\-]{8,}" placeholder="Minimum 8 characters"></p>
+                        <p>First Name: <input type="text" id="fName" name="first_name" value="${user_profile_info.fName}"></p>
+                        <p>Last Name: <input type="text" id="lName" name="last_name" value="${user_profile_info.lName}"></p>
+                        <p>Date of Birth: <input type="date" id="DoB" name="date_of_birth" value="${user_profile_info.DoB}"></p>
+                        <label for="description">Description:</label>
+                        <p><textarea id="description" name="description">${user_profile_info.description}</textarea></p>                              
+                        <p>Email: <input type="email" id="email" name="user_email" value="${user_profile_info.email}"></p>
+                        <p>Phone: <input type="tel" id="phone" name="user_phone" value="${user_profile_info.phone}" pattern="[0-9]{10}" placeholder="9999999999"></p>
+                        <br>
+                        <input type="submit">
+                    </form>`
+
+                    document.querySelector('form').addEventListener('submit', async (event) => {
+                        event.preventDefault();
+
+                        let new_username = document.querySelector('input#username').value;
+                        let new_password = document.querySelector('input#password').value;
+                        let new_fName = document.querySelector('input#fName').value;
+                        let new_lName = document.querySelector('input#lName').value;
+                        let new_DoB = document.querySelector('input#DoB').value;
+                        let new_description = document.querySelector('textarea#description').value;
+                        let new_email = document.querySelector('input#email').value;
+                        let new_phone = document.querySelector('input#phone').value;
+
+                        let updated_user = {...user_profile_info, username: new_username,
+                                                                password: new_password,
+                                                                fName: new_fName,
+                                                                lName: new_lName,
+                                                                DoB: new_DoB,
+                                                                description: new_description,
+                                                                email: new_email,
+                                                                phone: new_phone};
+                        await update_user_data(user_profile_info.username, updated_user);
+                        await display_profile()
+                    })
+                }
+
+
+            display_profile()
+        </script>
+    </body>
+</html>
