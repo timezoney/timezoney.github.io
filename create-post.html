@@ -92,7 +92,7 @@
 
                 <!-- Image upload section (optional) -->
                 <div class="form-group">
-                    <label for="images">Images (Optional)</label>
+                    <label for="images">Images (Optional) (Currently not working)</label>
                     <!-- Custom styled file input -->
                     <div class="file-input-wrapper">
                         <input type="file" id="images" name="images" accept="image/*" multiple>
@@ -126,6 +126,18 @@
                         sessionStorage.setItem('user_profile', sessionStorage.getItem('logged_in_user'))
                     })
                 })
+
+        
+        try {
+            let all_users = await load_user_data();
+            let current_user = all_users[all_users.findIndex(user => user.username == sessionStorage.getItem('logged_in_user'))]
+            
+            if (current_user.unread_notifications) {
+                document.getElementById('notification-icon').src = './images/notification.png'
+            }
+        } catch (err) {
+            console.error(err)
+        }
     </script>
 </body>
 </html>

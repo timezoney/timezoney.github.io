@@ -6,61 +6,9 @@
     "phone": "2345678901",
     "description": "some description",
     "fName": "Daniil",
-    "lName": "some lName",
-    "DoB": "2007-11-11",
-    "notifications": [
-      {
-        "username": "jane",
-        "fName": "Jane",
-        "lName": "Doe",
-        "message": "some message related to the post 5",
-        "post_id": 2
-      },
-      {
-        "username": "jack",
-        "fName": "Jack",
-        "lName": "Doe",
-        "message": "some message related to the post 1",
-        "post_id": 1
-      },
-      {
-        "username": "jake",
-        "fName": "Jake",
-        "lName": "Doe",
-        "message": "some message related to the post 2",
-        "post_id": 4
-      },
-      {
-        "username": "new_username",
-        "fName": "Daniil",
-        "lName": "Vladimirov",
-        "message": "this is a test of responding to someone's post",
-        "post_id": 4
-      }
-    ],
-    "contacts": []
-  },
-  {
-    "username": "new_notification_test",
-    "password": "some_password",
-    "email": "some@email",
-    "phone": "2345678901",
-    "description": "some description",
-    "fName": "some fName",
-    "lName": "some lName",
-    "DoB": "2025-12-11",
-    "notifications": [],
-    "contacts": []
-  },
-  {
-    "username": "asd",
-    "password": "qweasdzxc",
-    "email": "another_example@gmail.com",
-    "phone": "3233233232",
-    "description": "asdqwcas",
-    "fName": "dqwedas",
-    "lName": "dsadwqc",
-    "DoB": "2025-12-02",
+    "lName": "Vladimirov",
+    "DoB": "2007-08-16",
+    "unread_notifications": false,
     "notifications": [],
     "contacts": []
   },
@@ -70,18 +18,40 @@
     "email": "example@gmail.com",
     "phone": "1234567890",
     "description": "wow",
-    "fName": "Daniil",
-    "lName": "Vladimirov",
+    "fName": "Jane",
+    "lName": "Doe",
     "DoB": "2025-12-01",
+    "unread_notifications": false,
     "notifications": [
       {
         "username": "some_name",
-        "fName": "Daniil",
-        "lName": "some lName",
-        "message": "Hello!!!!",
+        "message": "i'm interested in doing this job",
         "post_id": 1765441282201
+      },
+      {
+        "username": "some_name",
+        "message": "i can do this job",
+        "post_id": 1765441282201
+      },
+      {
+        "username": "some_name",
+        "message": "You're hired.",
+        "post_id": 1765588807925
       }
     ],
+    "contacts": []
+  },
+  {
+    "username": "ashtonn",
+    "password": "19191919",
+    "email": "ashtonc4200@gmail.com",
+    "phone": "9055502083",
+    "description": "dasas",
+    "fName": "Ashton",
+    "lName": "C",
+    "DoB": "2004-09-22",
+    "unread_notifications": false,
+    "notifications": [],
     "contacts": []
   }
 ]

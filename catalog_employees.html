@@ -93,13 +93,26 @@
     <!-- ==================== ASHTON CODE (START) ==================== -->
     <script type="module" defer>
         // Import function to load post data from database
-        import { load_post_data } from './data_utils.js'
+        import { load_post_data, load_user_data } from './data_utils.js'
 
         document.querySelectorAll('a.profile_link').forEach((link) => {
                     link.addEventListener('click', () => {
                         sessionStorage.setItem('user_profile', sessionStorage.getItem('logged_in_user'))
                     })
                 })
+
+        try {
+            let all_users = await load_user_data();
+            let current_user = all_users[all_users.findIndex(user => user.username == sessionStorage.getItem('logged_in_user'))]
+            
+            if (current_user.unread_notifications) {
+                document.getElementById('notification-icon').src = './images/notification.png'
+            }
+        } catch (err) {
+            console.error(err)
+        }
+        
+
         // Variable to store the current search term
         let searchQuery = '';
         // Load all posts from the database
@@ -147,7 +160,7 @@
                 noResultsMessage.style.display = 'none';
 
                 // Loop through each post and add it to the page
-                postsToDisplay.forEach((post) => {
+                [...postsToDisplay].reverse().forEach((post) => {
                     document.querySelector('main').innerHTML += `<a href="./view_post.html" id="${post.id}">
                                                                     <img src="${post.image}" alt="${post.image}" width="200px">
                                                                     <h3>${post.title}</h3>

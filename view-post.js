@@ -105,7 +105,7 @@ function displayPost(post, users) {
     postImage.src = post.image;
 
     // Change button text based on post type (job or employee)
-    if (post.type == 'job') {
+    if (post.type == 'Job') {
         contactBtn.textContent = 'Contact Employer';
     } else {
         contactBtn.textContent = 'Contact Employee';

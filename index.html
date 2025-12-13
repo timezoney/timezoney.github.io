@@ -81,12 +81,31 @@
         <p>&copy; 2025 Jobster</p>
         <p>Author: Ashton</p>
     </footer>
-    <script defer>
+    <script type="module" defer>
+        import { load_user_data } from './data_utils.js'
         document.querySelectorAll('a.profile_link').forEach((link) => {
                     link.addEventListener('click', () => {
                         sessionStorage.setItem('user_profile', sessionStorage.getItem('logged_in_user'))
                     })
                 })
+
+
+        try {
+            let all_users = await load_user_data();
+            let current_user = all_users[all_users.findIndex(user => user.username == sessionStorage.getItem('logged_in_user'))]
+            
+            if (current_user.unread_notifications) {
+                document.getElementById('notification-icon').src = './images/notification.png'
+            }
+
+            if (current_user) {
+                document.querySelector('section.stats-section a').href = './catalog_employees.html'
+            } else {
+                document.querySelector('section.stats-section a').href = './register.html'
+            }
+        } catch (err) {
+            console.error(err)
+        }
     </script>
 </body>
 </html>

@@ -16,9 +16,10 @@ export async function add_user_data(new_name, new_password, new_email, new_phone
     let fName = new_fName
     let lName = new_lName
     let DoB = new_DoB
+    let unread_notifications = false
     let notifications = []
     let contacts = []
-    const newData = { username, password, email, phone, description, fName, lName, DoB, notifications, contacts };
+    const newData = { username, password, email, phone, description, fName, lName, DoB, unread_notifications, notifications, contacts };
  
     const response = await fetch('/add-user-data', {
         method: 'POST',
@@ -62,7 +63,6 @@ export async function load_post_data() {
 }
 
 export async function add_post_data(new_author, new_title, new_short_descr, new_full_descr, new_field_of_service) {
-    const id = await load_post_data().length + 1
     const author = new_author
     const title = new_title
     const short_descr = new_short_descr

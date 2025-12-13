@@ -11,6 +11,15 @@
         <link rel="stylesheet" href="./css/notifications.css">
     </head>
     <body>
+        <script>
+            // Check if user is logged in
+            var loggedInUser = sessionStorage.getItem('logged_in_user');
+            if (!loggedInUser || loggedInUser == '') {
+                // Redirect to login page if not logged in
+                alert('Please log in first');
+                window.location.href = 'login.html';
+            }
+        </script>
 
         <header>
             <a href="./index.html">
@@ -52,25 +61,34 @@
                     })
                 })
 
-            document.querySelector('img#notification-icon').src = './images/notification.png';
+            document.querySelector('img#notification-icon').src = './images/notification_inactive.png';
+
 
             let all_users = await load_user_data();
             let current_user = all_users[all_users.findIndex(user => user.username == sessionStorage.getItem('logged_in_user'))];
+            
+            let updated_user = {...current_user, unread_notifications: false};
+            await update_user_data(current_user.username, updated_user);
 
             async function load_motifications() {
                 document.querySelector('main').innerHTML = ''
 
                 let all_posts = await load_post_data();
-                for (let [n_index, notification] of current_user.notifications.entries()) {
+                for (let [n_index, notification] of [...current_user.notifications].reverse().entries()) {
 
                     let current_post = all_posts[all_posts.findIndex(post => post.id == notification.post_id)];
+                    let notification_user = all_users[all_users.findIndex(user => user.username == notification.username)]
                     document.querySelector('main').innerHTML += `<div id="${n_index}" data-username="${notification.username}">
-                                                                    <h2><a href="./profile.html"  id="${notification.username}">${notification.fName} ${notification.lName}</a></h2>
+                                                                    <h2><a href="./profile.html"  id="${notification.username}">${notification_user.fName} ${notification_user.lName}</a></h2>
                                                                     <h3>${notification.message}</h3>
                                                                     <p>Responded to your post: <b><a href="./view_post.html" id="${notification.post_id}">${current_post.title}</a></b></p>
                                                                     <button type="button" class="acc">Accept</button><button type="button" class="rej">Reject</button>
                                                                 </div>`
                 };
+
+                if (document.querySelector('main').innerHTML == '') {
+                    document.querySelector('main').innerHTML = '<h2 style="align-self: center">No notifications</h2>'
+                }
 
                 document.querySelectorAll('h2 a').forEach((link) => {
                     link.addEventListener('click', () => {

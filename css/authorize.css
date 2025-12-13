@@ -95,6 +95,11 @@ main form {
     max-width: 80%;
 }
 
+input[type="submit"] {
+    background-color: #FFC914;
+    padding: 5px;
+}
+
 textarea {
     max-width: 100%;
 }

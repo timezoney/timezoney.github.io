@@ -126,6 +126,11 @@
         let post_author_user = all_users[all_users.findIndex(user => user.username == current_post.author)]
         let current_user = all_users[all_users.findIndex(user => user.username == logged_user)]
 
+        if (current_user.unread_notifications) {
+            document.getElementById('notification-icon').src = './images/notification.png'
+        }
+        
+
         if (logged_user == post_author_user.username) {
             contact_button.style.display = 'none';
             document.querySelector('input#respond_message').style.display = 'none';
@@ -136,8 +141,6 @@
             // Create a notification object with the message and user info
             let new_notification = {
                                     "username": `${current_user.username}`,
-                                    "fName": `${current_user.fName}`,
-                                    "lName": `${current_user.lName}`,
                                     "message": `${document.getElementById('respond_message').value}`,
                                     "post_id": post_id
                                 };
@@ -145,7 +148,7 @@
             // Add the new notification to the post author's notification list
             let updated_notifications = [...post_author_user.notifications];
             updated_notifications.push(new_notification);
-            let updated_user = {...post_author_user, notifications: updated_notifications};
+            let updated_user = {...post_author_user, unread_notifications: true, notifications: updated_notifications};
             
             // Update the user data in the database
             await update_user_data(post_author_user.username, updated_user);

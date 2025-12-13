@@ -80,7 +80,17 @@
             })
             
 
-            let all_users
+            let all_users = await load_user_data()
+            try {
+                let current_user = all_users[all_users.findIndex(user => user.username == sessionStorage.getItem('logged_in_user'))]
+                
+                if (current_user.unread_notifications) {
+                    document.getElementById('notification-icon').src = './images/notification.png'
+                }
+            } catch (err) {
+                console.error(err)
+            }
+
             let user_profile_info
             let user_profile = sessionStorage.getItem('user_profile');
 
@@ -97,7 +107,8 @@
                     document.querySelector('section#user_posts div').innerHTML += `<a href="./view_post.html" id="${post.id}">
                                                                     <img src="${post.image}" alt="${post.image}" width="200px">
                                                                     <h3>${post.title}</h3>
-                                                                    <h5>${post.author}</h5>
+                                                                    <h4>${post.author}</h4>
+                                                                    <h5>${post.field_of_service}</h5>
                                                                     <p>${post.short_description}</p>
                                                                 </a>`
                 }
@@ -112,7 +123,7 @@
             })
 
             async function display_profile() {
-                all_users = await load_user_data();
+                all_users = await load_user_data()
                 user_profile_info = all_users[all_users.findIndex(user => user.username == user_profile)];
 
 

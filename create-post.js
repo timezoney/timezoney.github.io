@@ -112,9 +112,9 @@ submitBtn.addEventListener('click', function() {
 
     // Set image path (use default if no image uploaded)
     let image = "./images/default.png"
-    if (imageInput.files.length) {
-        image = `./images/${imageInput.files[0].name}`
-    }
+    // if (imageInput.files.length) {
+    //     image = `./images/${imageInput.files[0].name}`
+    // }
     
     // Create post data object with all form information
     var postData = {

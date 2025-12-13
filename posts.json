@@ -100,26 +100,6 @@
     "image": "./images/deal.jpg"
   },
   {
-    "id": "1765438243723",
-    "author": "true",
-    "title": "SOME JOB",
-    "short_description": "BRIEF SECRIPTION OF SOME JOB",
-    "full_description": "FULL DESCRIPTION OF SOME JOB. FULL DESCRIPTION OF SOME JOB. FULL DESCRIPTION OF SOME JOB. FULL DESCRIPTION OF SOME JOB.",
-    "field_of_service": "General",
-    "type": "Job",
-    "image": "./images/default.png"
-  },
-  {
-    "id": "1765438304022",
-    "author": "true",
-    "title": "TEST IMAGES",
-    "short_description": "ASDQWDSA",
-    "full_description": "QDWQSCQWDWQ",
-    "field_of_service": "General",
-    "type": "Job",
-    "image": "./images/default.png"
-  },
-  {
     "id": "1765441282201",
     "author": "Daniilll",
     "title": "SOME JOB 2",
@@ -127,6 +107,26 @@
     "full_description": "educate everyone",
     "field_of_service": "EDUCATION",
     "type": "Job",
+    "image": "./images/default.png"
+  },
+  {
+    "id": "1765483733129",
+    "author": "ashtonn",
+    "title": "IT",
+    "short_description": "BLAH",
+    "full_description": "BLAH",
+    "field_of_service": "IT",
+    "type": "Job",
+    "image": "./images/default.png"
+  },
+  {
+    "id": "1765588807925",
+    "author": "Daniilll",
+    "title": "Front-end web developer",
+    "short_description": "Hard-working, creative, the best",
+    "full_description": "Motivated front-end developer with experience in HTML, CSS, and JavaScript. Skilled in building responsive, user-friendly websites and web applications. Familiar with modern development practices, APIs, and version control. Strong attention to detail, problem-solving skills, and eagerness to learn new technologies.",
+    "field_of_service": "IT",
+    "type": "Employee",
     "image": "./images/default.png"
   }
 ]
